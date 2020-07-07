@@ -1,0 +1,51 @@
+<!-- <h3 *ngIf="id == null">Добавить сотруднка</h3>
+<h3 *ngIf="id != null">Изменить сотруднка</h3> -->
+
+<form action="" [formGroup]="purchasesForm">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-3">
+            <label for="">Id</label>
+        </div>
+        <div class="col-3">
+            <input 
+            type="number" 
+            class="form-control" 
+            placeholder="Id"
+            formControlName="id"/>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-2"></div>
+        <div class="col-3">
+            <label for="">Название покупки</label>
+        </div>
+        <div class="col-3">
+            <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Название покупки"
+            formControlName="name"/>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-2"></div>
+        <div class="col-3">
+            <label for="">Количество</label>
+        </div>
+        <div class="col-3">
+            <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Количество"
+            formControlName="count"/>
+        </div>
+    </div>
+</form>
+<div class="row">
+    <div class="col-3">
+    </div>
+    <button  class="btn btn-primary mx-2" (click)="onEditPurchase()" [disabled]="purchasesForm.invalid">Сохранить</button>
+    <button *ngIf="this.id" class="btn btn-danger mx-2" (click)="onDelete(this.id)">Удалить</button>
+    <button class="btn btn-primary mx-2" (click)="onTable()">Назад</button>
+</div>

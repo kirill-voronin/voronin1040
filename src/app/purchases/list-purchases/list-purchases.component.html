@@ -1,0 +1,27 @@
+<table class="table" id="table-id">
+    <thead>
+      <tr class="text-center">
+        <th >#</th>
+        <th>Название покупки</th>
+        <th>Количество</th>
+        <th>Status</th>
+        <th class="text-right no-sort" data-sort-method='none'>
+            <button class="btn btn-primary" (click)="onAddPurchases()">Добавить покупку</button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let purchase of purchases">
+        <td class="text-center" scope="row">{{purchase.id}}</td>
+        <td class="text-center">{{purchase.name}}</td>
+        <td class="text-center">{{purchase.count}}</td>
+        <td class="text-center" 
+        [style.background-color]="purchase.status ? 'white': 'green'"
+        [style.color]="purchase.status ? 'white': 'green'">{{getStatus(purchase.status)}}</td>
+        <td class="text-right">
+            <button class="btn btn-primary mx-2" (click)="onEditPurchases(purchase.id)">Изменить</button>
+            <button class="btn btn-primary" (click)="onChangeStatus(purchase)">Изменить статус</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
